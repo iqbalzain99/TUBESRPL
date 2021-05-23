@@ -4,5 +4,5 @@
    unset($_SESSION["username"]);
    unset($_SESSION["password"]);
    session_destroy();
-   header('Refresh: 2; URL = index.php');
+   header('Refresh: 0; URL = index.php');
 ?>

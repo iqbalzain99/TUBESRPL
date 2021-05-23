@@ -212,3 +212,10 @@ select
 	width: 60px;
 	height: 60px;
 }
+
+.project-list li
+{
+	list-style: none;
+	float: left;
+	margin-right: 20px;
+}

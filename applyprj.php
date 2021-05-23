@@ -12,26 +12,31 @@ $otask = new Task($db_host, $db_user, $db_password, $db_name);
 
 $otask->open();
 //$id, $tname, $tnim, $tp1, $tp2, $tp3, $tkelas
-
-if(isset($_GET['id_project'])){
-    $idproject = $_GET['id_project'];
-    $applicant = $otask->getUserIdByUsername($_SESSION['username']);
-    $owner = $otask->getUserIdByProjectId($_GET['id_project']);
-    
-    if( isset($_POST['done'])){
-        $full_name = $_POST['fname'];
-        $address = $_POST['address'];
-        $sex = $_POST['gender'];
-        $birth_date = $_POST['birthdate'];
-        $phone_num = $_POST['telnum'];
-        $req_data = $_POST['reqdat'];
-        $experiences = htmlspecialchars($_POST['desc']);
-        $otask->addApplyProject($applicant, $idproject, $owner, $full_name, $address, $sex, $birth_date, $phone_num, $req_data, $experiences );
-        echo "<script type='text/javascript'>alert('Pendaftaran Berhasil!');</script>";
-        header('Refresh: 0; URL = projects.php');
+if(isset($_SESSION['username'])){    
+    if(isset($_GET['id_project'])){
+        $idproject = $_GET['id_project'];
+        $applicant = $otask->getUserIdByUsername($_SESSION['username']);
+        $owner = $otask->getUserIdByProjectId($_GET['id_project']);
+        
+        if( isset($_POST['done'])){
+            $full_name = $_POST['fname'];
+            $address = $_POST['address'];
+            $sex = $_POST['gender'];
+            $birth_date = $_POST['birthdate'];
+            $phone_num = $_POST['telnum'];
+            $req_data = $_POST['reqdat'];
+            $experiences = htmlspecialchars($_POST['desc']);
+            $otask->addApplyProject($applicant, $idproject, $owner, $full_name, $address, $sex, $birth_date, $phone_num, $req_data, $experiences );
+            echo "<script type='text/javascript'>alert('Pendaftaran Berhasil!');</script>";
+            header('Refresh: 0; URL = projects.php');
+        }
+        
     }
-    
+}else{
+    echo "<script type='text/javascript'>alert('Login terlebih dahulu!');</script>";
+    header('Refresh: 0; URL = login.php');
 }
+
 
 
 // Menutup koneksi database
@@ -52,9 +57,9 @@ if(isset($_SESSION['username'])){
     
     $nama = $_SESSION['username'];
     $profilDefault = "<div class='btn-profile'>
-    <a href='logout.php'>LogOut</a>
+    <a href='logout.php'>Log Out</a>
     </div>
-    <p>Hello, '$nama'!</p>
+    <p style='color: #ECF0F1; font-size: 24px; font-family: Raleway; font-weight: 300;'>Hello, $nama!</p>
     <div class='profile-container'>
         <a href='editprofile.php'><img src='img/header/rira.png'></a>
     </div>";

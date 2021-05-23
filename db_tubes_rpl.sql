@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2021 at 03:13 PM
+-- Generation Time: May 23, 2021 at 12:21 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -47,7 +47,8 @@ CREATE TABLE `tb_apply_project` (
 --
 
 INSERT INTO `tb_apply_project` (`id_apply`, `id_applicant`, `id_project`, `id_owner`, `full_name`, `address`, `sex`, `birth_date`, `phone_num`, `req_data`, `experiences`, `status`) VALUES
-(1, 1, 4, 3, 'Muhammad Iqbal Zain', 'Lembang', 'male', '2021-05-06', '085813761927', 'drive.google.com', 'sadf', 1);
+(1, 1, 4, 3, 'Muhammad Iqbal Zain', 'Lembang', 'male', '2021-05-06', '085813761927', 'drive.google.com', 'sadf', 1),
+(2, 3, 1, 1, 'Muhammad Melvyn Maunti', 'Soreang City', 'male', '2021-05-05', '0888888888', 'drive.google.com', 'Hai dude', 0);
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_apply_project`
 --
 ALTER TABLE `tb_apply_project`
-  MODIFY `id_apply` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_apply` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_project`

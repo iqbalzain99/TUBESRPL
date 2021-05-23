@@ -44,9 +44,9 @@ if(isset($_SESSION['username'])){
     
     $nama = $_SESSION['username'];
     $profilDefault = "<div class='btn-profile'>
-    <a href='logout.php'>LogOut</a>
+    <a href='logout.php'>Log Out</a>
     </div>
-    <p>Hello, '$nama'!</p>
+    <p style='color: #ECF0F1; font-size: 24px; font-family: Raleway; font-weight: 300;'>Hello, $nama!</p>
     <div class='profile-container'>
         <a href='editprofile.php'><img src='img/header/rira.png'></a>
     </div>";

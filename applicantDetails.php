@@ -29,17 +29,17 @@ if( isset($_GET['id_project'])){
         // Tampilan jika status pembayaran nya sudah bayar
     
         $data .= "<tr>
-        <td style='text-align: center;'>" . $id_apply . "</td>
-        <th>".$id_applicant."</th>
-        <th>".$id_project."</th>
-        <th>".$id_owner."</th>
-        <th>".$full_name."</th>
-        <th>".$address."</th>
-        <th>".$sex."</th>
-        <th>".$req_data."</th>
-        <th>".$experiences."</th>";
+        <td>" . $id_apply . "</td>
+        <td>".$id_applicant."</td>
+        <td>".$id_project."</td>
+        <td>".$id_owner."</td>
+        <td>".$full_name."</td>
+        <td>".$address."</td>
+        <td>".$sex."</td>
+        <td>".$req_data."</td>
+        <td>".$experiences."</td>";
         if($status == 0){
-            $data .= "<td align='center'><button class='btn btn-success'><a href='applicantDetails.php?id_project=".$_GET['id_project']."&id_done=" . $id_apply ."' style='color: white; text-decoration: none;'>Done</a></button></td>
+            $data .= "<td align='center'><button class='btn btn-success'><a href='applicantDetails.php?id_project=".$_GET['id_project']."&id_done=" . $id_apply ."' style='color: black; text-decoration: none;'>Done</a></button></td>
             </tr>";
         }else{
             $data .= "<td align='center'><button class='btn btn-outline-success' disabled><a style='color: black; text-decoration: none;'>Done</a></button></td>";
@@ -67,7 +67,7 @@ if(isset($_SESSION['username'])){
         $profilDefault = "<div class='btn-profile'>
         <a href='logout.php'>Log Out</a>
         </div>
-        <p style='color: #ECF0F1; font-size: 24px; font-family: Raleway; font-weight: 300;'>Hello, $nama!</p>
+        <p style='color: #ECF0F1; font-size: 24px; font-family: Raleway; font-weight: 300; margin-right: 15px;'>Hello, $nama!</p>
         <div class='profile-container'>
             <a href='editprofile.php'><img src='img/header/rira.png'></a>
         </div>";

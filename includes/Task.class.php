@@ -28,6 +28,15 @@ class Task extends DB{
 		return $x;
 	}
 
+	function getLastedIdProjectByOwnerId($owner){ //Bener
+		$query = "SELECT id_project FROM tb_project WHERE id_owner = '$owner' ORDER BY tb_project.id_project DESC";
+		$this->execute($query);
+		$hasil = $this->getResult();
+		// echo print_r($id_user) ;
+		$x = $hasil["id_project"];
+		// Mengeksekusi query
+		return $x;
+	}
 
 	//Mengambil data project
 	function getActiveProject(){
@@ -51,6 +60,12 @@ class Task extends DB{
 		return $this->execute($query);
 	}
 
+	function getProjectById($id){//BENER
+		$query = "SELECT * FROM tb_project WHERE id_project = '$id'";
+		
+		// Mengeksekusi query
+		return $this->execute($query);
+	}
 	//Digunakan untuk mengupdate status project untuk admin
 	function updateStatus($status, $id){//BENER
 		$query = "UPDATE tb_project SET status = $status   WHERE tb_project.id_project = $id;";
@@ -72,11 +87,17 @@ class Task extends DB{
 		return $this->execute($query);
 	}
 
-	function getProjectByID($id){//BENER
-		$query = "SELECT * FROM tb_project WHERE id_project = $id";
+	function getAppliedProjectByIdApplicant($id){//BENER
+		$query = "SELECT * FROM tb_apply_project WHERE id_applicant = $id";
 		// Mengeksekusi query
 		return $this->execute($query);
 	}
+
+	// function getProjectByID($id){//BENER
+	// 	$query = "SELECT * FROM tb_project WHERE id_project = $id";
+	// 	// Mengeksekusi query
+	// 	return $this->execute($query);
+	// }
 
 
 

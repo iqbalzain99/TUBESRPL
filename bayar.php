@@ -10,25 +10,19 @@ session_start();
 $otask = new Task($db_host, $db_user, $db_password, $db_name);
 $otask->open();
 
-if( isset($_POST['done'])){
-	$title = $_POST['title'];
-    $location = $_POST['location'];
-    $category = $_POST['category'];
-    $date = $_POST['date'];
-    $desc = htmlspecialchars($_POST['desc']);
-    if(isset($_SESSION['username'])){
-        $otask->addProjectBaru($_SESSION['username'] , $title, $location , $category, $date, $desc);
-        header("location:bayar.php");
-    }else{
-        echo "<script type='text/javascript'>alert('Anda harus login terlebih dahulu!');</script>";
-    }
+
+if(isset($_SESSION['username'])){
+    
+    $nama = $_SESSION['username'];
+    $code = $otask->getLastedIdProjectByOwnerId($otask->getUserIdByUsername($nama));
 }
+
 //$id, $tname, $tnim, $tp1, $tp2, $tp3, $tkelas
 // Menutup koneksi database
 $otask->close();
 
 // Membaca template skin.html
-$tpl = new Template("skin/postproject.html");
+$tpl = new Template("skin/bayar.html");
 $profilDefault = "<div class='profile-container'>
 <div class='btn-profile'>
     <a href='login.php'>Login</a>
@@ -51,5 +45,7 @@ if(isset($_SESSION['username'])){
     
 }
 $tpl->replace("PROFIL", $profilDefault);
+$tpl->replace("NAMAUSER", $nama);
+$tpl->replace("TOTAL", 50000 + $code);
 // Menampilkan ke layar
 $tpl->write();

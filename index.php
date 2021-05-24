@@ -9,6 +9,11 @@ session_start();
 // Membuat objek dari kelas task
 $otask = new Task($db_host, $db_user, $db_password, $db_name);
 $otask->open();
+
+if( isset($_POST['search'])){
+    $word = $_POST['search'];
+    header("location:projects.php?search=$word");
+}
 //$id, $tname, $tnim, $tp1, $tp2, $tp3, $tkelas
 // Menutup koneksi database
 $otask->close();
@@ -30,7 +35,7 @@ if(isset($_SESSION['username'])){
     $profilDefault = "<div class='btn-profile'>
     <a href='logout.php'>Log Out</a>
     </div>
-    <p style='color: #ECF0F1; font-size: 24px; font-family: Raleway; font-weight: 300;'>Hello, $nama!</p>
+    <p style='color: #ECF0F1; font-size: 24px; font-family: Raleway; font-weight: 300; margin-right: 15px;'>Hello, $nama!</p>
     <div class='profile-container'>
         <a href='editprofile.php'><img src='img/header/rira.png'></a>
     </div>";

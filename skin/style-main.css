@@ -131,11 +131,11 @@ body
 {
 	margin-left: 150px;
 	margin-right: 150px;
+	color: #2C3E50;
+	width: 100%;
 	display: flex;
 	align-items: center;
-	color: #2C3E50;
 	justify-content: space-between;
-	width: 100%;
 }
 
 .left-main
@@ -185,4 +185,34 @@ body
 	font-size: 24px;
 	border: none;
 	padding-left: 24px;
+}
+
+hr
+{
+	width: 100%;
+	border: 1px solid #FF735C;
+}
+
+h1
+{
+	font-size: 48px;
+	color: #2C3E50;
+	font-family: Raleway;
+}
+
+table
+{
+	font-family: Raleway;
+	color: #2C3E50;
+	width: 100%;
+}
+
+table td
+{
+	text-align: center;
+}
+
+.text-main p
+{
+	text-align: justify;
 }
